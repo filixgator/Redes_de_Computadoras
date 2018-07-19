@@ -9,9 +9,11 @@
 
 <h2>Preinstallation</h2>
 <p>Be sure to have the latest OS update by writing the following lines in the command line</p>
-<pre>sudo apt-get install update -y</pre>
-<pre>sudo apt-get install upgrade -y</pre>
-<pre>sudo apt-get install rpi-update -y</pre>
+<pre>
+  <p>sudo apt-get install update -y</p>
+  <p>sudo apt-get install upgrade -y</p>
+  <p>sudo apt-get install rpi-update -y</p>
+</pre>
 
 <p>Now, we are ready to continue with the Installation Guide</p>
 
