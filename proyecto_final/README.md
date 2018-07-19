@@ -1,4 +1,4 @@
-<h1>Raspbery Pi All in One<h1>
+<h1>Raspbery Pi All in One</h1>
 <p>It is meant to be a DNS, Web, Email, File, DBS, and LDAP server.<p>
 
 <h2>Prerequisites</h2>
