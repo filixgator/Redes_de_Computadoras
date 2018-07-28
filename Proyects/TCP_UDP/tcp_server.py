@@ -15,11 +15,11 @@ conn, addr = s.accept()
 print 'Connection address:', addr
 
 # Make a loop to receive and send packets to the client
-while 1:
+while True:
     data = conn.recv(BUFFER_SIZE)
     if not data: break
     print "received data:", data
-    conn.send(data)  # echo
+    conn.send(data)
 
 # Close communication with the client
 conn.close()
