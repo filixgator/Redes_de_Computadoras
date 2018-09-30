@@ -95,7 +95,52 @@ The iptables rule need to be saved `sudo sh -c "iptables-save > /etc/iptables.ip
 Now we can reboot our Raspberry Pi which will act as an Access Point with the SSID and Passphrase created.
 
 ### Comunication
+Two Raspberry Pis were used to be able to establish the communication, one as the server and the other as the client. As a team we decided to make it happen through TCP (Transmission Control Protocol) where the client and the server communicates between both as to UDP (User Datagram Protocol) which only the client does.
 
+![Python status](https://img.shields.io/badge/python-v2.7-brightgreen.svg)
+
+The following codeswhre made to establish this communication.
+
+**Server Code**
+```
+import socket
+
+TCP_IP = '10.0.0.1' #IP Address of the server
+TCP_PORT = 5005 #Port used
+BUFFER_SIZE = 1024
+
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM) #Creates TCP socket
+s.bind((TCP_IP, TCP_PORT)) #Associate the socket with the server address
+s.listen(1) #Listens for incoming connections
+
+connection, client_address = s.accept() #Opens connection with the client
+
+while 1:
+    data_recv = connection.recv(BUFFER_SIZE) #Data is read from the connection 
+    data = "Acknowledge of data received"
+    if not data_recv: break
+    print data_recv
+    connection.send(data) #Transmits data to client
+connection.close() #When finished, connection with the client is closed
+```
+
+**Client Code**
+```
+import socket
+
+TCP_IP = '10.0.0.1' #IP Address of the server
+TCP_PORT = 5005 #Port used
+BUFFER_SIZE = 1024
+
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM) #Creates TCP socket
+s.connect((TCP_IP, TCP_PORT)) #Attaches the socket with the server address
+while 1:
+	  data = "data"
+	  s.send(data) #Sends data to the client
+	  data_recv = s.recv(BUFFER_SIZE) #Receives data from the client
+	  print data_recv
+s.close() #Closes the connection through the socket
+```
 
 ## Results and Analysis
 
