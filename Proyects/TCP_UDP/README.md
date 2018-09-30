@@ -101,7 +101,7 @@ Two Raspberry Pis were used to be able to establish the communication, one as th
 
 The following codeswhre made to establish this communication.
 
-**Server Code**
+#### Server Code
 ```
 import socket
 
@@ -124,7 +124,7 @@ while 1:
 connection.close() #When finished, connection with the client is closed
 ```
 
-**Client Code**
+#### Client Code
 ```
 import socket
 
