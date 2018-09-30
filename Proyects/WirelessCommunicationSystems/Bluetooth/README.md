@@ -17,6 +17,15 @@ Establish a wireless communication using Bluetooth between a transmitter and a r
 
 ### Architecture
 ### Protocols
+#### RFCOMM
+Radio Frequency Communication (RFCOMM) is a set of transport protocols that provides emulation of serial ports `RS-232` over the L2CAP protocol, which establishes a Bluetooth communication. It supports up to 60 simultaneous connections between two bluetooth devices.
+
+It exists two different types of devices:
+- **Type 1**: end points like computers, smartphones, speakers, and many others.
+- **Type 2**: part of the communication segment like modems, AP, etc.
+
+There are no entities defined, therefore devices type 2 can communicate with devices of the same type.
+
 ### Physical Layer
 ### MAC Sublayer Protocol
 ### Frame Structure
@@ -72,5 +81,4 @@ sock.close() #Close communication
 ## Conclusions
 
 ## References
-
-
+https://ecee.colorado.edu/~ecen4242/marko/Bluetooth/Bluetooth/SPECIFICATION/RFCOMM.htm
