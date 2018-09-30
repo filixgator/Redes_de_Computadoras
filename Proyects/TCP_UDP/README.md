@@ -42,10 +42,11 @@ sudo apt-get upgrade
 ```
 sudo apt-get install dnsmasq hostapd
 ```
+When a file needs to be edited, add the following commands before the path of the file `sudo nano`.
 
 Yet, a standalone network needs to be configured for the Raspberry Pi to act as a server, it needs to have a static IP Address.
 
-The dhcpcd file needs to be configured with the static IP Address `sudo nano /etc/dhcpcd.conf` and at the end of the file edit it with the following:
+The dhcpcd file needs to be configured with the static IP Address `/etc/dhcpcd.conf` and at the end of the file edit it with the following:
 ```
 interface wlan0
   static ip_address=10.0.0.1/24
@@ -61,24 +62,37 @@ interface wlan0 # Interface in use
 ```
 A range of IP addresses is configured that intended to be provided, it could go up to `10.0.0.254`, the netmask is also set according to our network class and a lease time of 24 hours (optional).
 
-The Access point need to be configured through a new file `sudo nano /etc/hostapd/hostapd.conf`.
+The Access point need to be configured through a new file `/etc/hostapd/hostapd.conf`.
 
-In it with the following information:
+Inside the file, the following information:
 ```
 interface=wlan0
 driver=nl80211 #The Raspberry's module driver
 ssid=NameOfNetwork
-hw_mode=g #Protocol used 802.11g 2.4GHz
-channel=11
-wmm_enabled=0
-macaddr_acl=0
-auth_algs=1
-wpa=2
+hw_mode=g #Used 802.11g 2.4GHz band
+channel=11 #Channel to use
+wmm_enabled=0 #QoS support
+macaddr_acl=0 #Controls MAC address filtering
+auth_algs=1 #1=wpa 2=wep 3=both
+wpa=2 #WPA2 only
 wpa_passphrase=NetworkPassword
 wpa_key_mgmt=WPA-PSK
 ```
 
+Now, the Raspberry Pi needs to run this file when initialized at boot, the file `/etc/default/hostapd` needs to be configured where the line `#DAEMON_CONF` needs to be replaced by `DAEMON_CONF=/etc/hostapd/hostapd.conf`.
 
+The Raspberry Pi is almost done, however a routing and masquerade need to be added.
+
+By uncommenting the line `net.ipv4.ip_forward=1` at the file `/etc/sysctl.conf`, packets are accpeted to be forwared.
+
+Later, a masquerade for outbound traffic if using `eth0`:
+```
+sudo iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+```
+
+The iptables rule need to be saved `sudo sh -c "iptables-save > /etc/iptables.ipv4.nat"`, and for them to be configured every time when booting, at the file `/etc/rc.local` above "exit 0" the next line needs to be added `iptables-restore < /etc/iptables.ipv4.nat`.
+
+Now we can reboot our Raspberry Pi which will act as an Access Point with the SSID and Passphrase created.
 
 ### Comunication
 
