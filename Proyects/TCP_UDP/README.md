@@ -17,6 +17,19 @@ Establish a wireless communication using WiFi between a transmitter and a recept
 
 ### Architecture
 ### Protocols
+- IP address (Internet Protocol address)
+Sets a direction for packets to be delivered from the source host to the destination host. The packets are encapsulated for the data to be delivered. It first started as a connectionless datagram service now named User Datagram Protocol(UDP), now it is a connection-oriented Transmission Control Protocol (TCP).
+
+The version used is IPv4 represented in the dot-decimal notation with a 32-bit integer value, IPv4 has runned out making of its successor IPv6 using 128-bit address represented as eight groups of four hexadecimal digits, providing approximately 4.3 billion addresses, 7.9 x 10^28 times as many as IPv4.
+
+- TCP (Transmission Control Protocol)
+Provides a reliable communication through a connection-oriented service between the server and the client, also known as a host-to-host connectivity at the transport layer of the TCP/IP model. This layer checks for data errors and provides the mechanisms to request retransmission of the lost data, therefore it guarantees that all the data received is correct and in order by keeping track of the 'segments'.
+
+TCP is mainly used when using the internet such as the World Wide Web (WWW), File Transfer Protocol (FTP), Secure Shell, etc.
+
+- DHCP (Dynamic Host Configuration Protocol)
+Provides the Access Point's clients with IP addresses to be able to communicate with other hosts. 
+
 ### Physical Layer
 ### MAC Sublayer Protocol
 ### Frame Structure
@@ -97,7 +110,7 @@ Now we can reboot our Raspberry Pi which will act as an Access Point with the SS
 ### Comunication
 Two Raspberry Pis were used to be able to establish the communication, one as the server and the other as the client. As a team we decided to make it happen through TCP (Transmission Control Protocol) where the client and the server communicates between both as to UDP (User Datagram Protocol) which only the client does.
 
-![Python status](https://img.shields.io/badge/python-v2.7-brightgreen.svg)
+![Python version](https://img.shields.io/badge/python-v2.7-brightgreen.svg)
 
 The following codeswhre made to establish this communication.
 
