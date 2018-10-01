@@ -16,6 +16,7 @@ Establish a wireless communication using WiFi between a transmitter and a recept
 ## Theoretical Framework
 
 ### Architecture
+![WiFi Communication Between Two Raspberry](https://github.com/LuisS96/Redes_de_Computadoras/blob/feature/tcp_udp/Proyects/TCP_UDP/WiFi_RaspberryPi3.png)
 ### Protocols
 - IP address (Internet Protocol address)
 Sets a direction for packets to be delivered from the source host to the destination host. The packets are encapsulated for the data to be delivered. It first started as a connectionless datagram service now named User Datagram Protocol(UDP), now it is a connection-oriented Transmission Control Protocol (TCP).
