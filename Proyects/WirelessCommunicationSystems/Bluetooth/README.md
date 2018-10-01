@@ -29,8 +29,33 @@ There are no entities defined, therefore devices type 2 can communicate with dev
 ### Physical Layer
 ### MAC Sublayer Protocol
 ### Frame Structure
+#### Bluetooth
+![Bluetooth Frame Structure](https://www.ahirlabs.com/wp-content/uploads/2017/12/Frameformat.png)
+
+- Access Code: used for timing synchronization, offset, paging, and inquiry
+- Header
+  - Addr: Temporary address assigned
+  - Type: Type of Packet
+  - F (FLOW): Flow Control
+  - A (ACK): Acknowledge (ACK)
+  - S (SEQN): Contains sequence number for packet ordering 
+  - Checksum: Error check
+- Data: Contains the data of the client
+
+#### RFCOMM
+(image)
+- Flag: Let knows where it starts.
+- Address
+- Control
+- Length Indicator
+- Information
+- FCS (Frame Check Sequence)
+- Flag: Let knows ehre it ends.
 
 ## Equipment and Material
+- Two Raspberry Pi 3 Model B+
+- One protoboard
+- One LED (Light-Emitting Diode)
 
 ## Development
 
@@ -82,3 +107,4 @@ sock.close() #Close communication
 
 ## References
 https://ecee.colorado.edu/~ecen4242/marko/Bluetooth/Bluetooth/SPECIFICATION/RFCOMM.htm
+https://www.bluetooth.org/docman/handlers/DownloadDoc.ashx?doc_id=263754
