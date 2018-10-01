@@ -29,8 +29,8 @@ There are no entities defined, therefore devices type 2 can communicate with dev
 ### Physical Layer
 ### MAC Sublayer Protocol
 ### Frame Structure
-#### Bluetooth
-![Bluetooth Frame Structure](https://www.ahirlabs.com/wp-content/uploads/2017/12/Frameformat.png)
+#### Bluetooth Network Encapsulation Protocol (BNEP)
+![BNEP Frame Structure](https://www.ahirlabs.com/wp-content/uploads/2017/12/Frameformat.png)
 
 - Access Code: used for timing synchronization, offset, paging, and inquiry
 - Header
