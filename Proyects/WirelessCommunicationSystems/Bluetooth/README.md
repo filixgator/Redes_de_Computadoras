@@ -17,7 +17,7 @@ Establish a wireless communication using Bluetooth between a transmitter and a r
 
 ### Architecture
 ### Protocols
-#### RFCOMM
+- #### RFCOMM
 Radio Frequency Communication (RFCOMM) is a set of transport protocols that provides emulation of serial ports `RS-232` over the L2CAP protocol, which establishes a Bluetooth communication. It supports up to 60 simultaneous connections between two bluetooth devices.
 
 It exists two different types of devices:
