@@ -16,6 +16,9 @@ Establish a wireless communication using Bluetooth between a transmitter and a r
 ## Theoretical Framework
 
 ### Architecture
+In order to create a Bluetooth system, the connection between a 
+The piconet is the most basic unit in a Bluetooth system
+
 ### Protocols
 - #### RFCOMM
 Radio Frequency Communication (RFCOMM) is a set of transport protocols that provides emulation of serial ports `RS-232` over the L2CAP protocol, which establishes a Bluetooth communication. It supports up to 60 simultaneous connections between two bluetooth devices.
